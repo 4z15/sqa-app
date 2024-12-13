@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Mahasiswa extends Model
 {
@@ -19,4 +20,9 @@ class Mahasiswa extends Model
         'email',
         'poto',
     ];
+
+    public function hitungumur(): int
+    {
+        return Carbon::parse(time : this->tanggal_lahir)->age;
+    }
 }
